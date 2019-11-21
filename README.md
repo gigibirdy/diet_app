@@ -1,4 +1,4 @@
-#Diet App
+# Diet App
 
 ![Image of Diet App](./images/readme_image.png)
 
