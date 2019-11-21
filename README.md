@@ -1,6 +1,16 @@
 # Diet App
 
-![Image of Diet App](./images/readme_image.png)
+<img src="./images/readme_image.png" alt="readme_img" align="center" width="400px"/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
 This is a simple nutrition calculator developed with LitElement, LitHTML, Redux and nutritionix API. This app supports natural language. User can get basic calories, fat, carb and protein info by entering keywords like "1 cup flour, 1 pinch of salt, and 1 cup butter".
 
