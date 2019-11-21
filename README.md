@@ -3,7 +3,7 @@
 <img src="./images/readme_image.png" alt="readme_img" align="center" width="400px"/>
 
 
-This is a simple nutrition calculator developed with LitElement, LitHTML, Redux and nutritionix API. This app supports natural language. User can get basic calories, fat, carb and protein info by entering keywords like "1 cup flour, 1 pinch of salt, and 1 cup butter".
+This is a simple nutrition calculator developed with LitElement, LitHTML, Redux and nutritionix API. This app supports natural language. User can get basic calories, fat, carb and protein info by entering keywords like "1 cup flour" or "2 big mac".
 
 
 ## Getting Started
