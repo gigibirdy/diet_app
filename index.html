@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- Load polyfills -->
+    <script
+      src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"
+      defer>
+    </script>
+    <!-- Load components via WebComponents.waitFor -->
+    <script type="module">
+      window.WebComponents = window.WebComponents || {
+        waitFor(cb){ addEventListener('WebComponentsReady', cb) }
+      }
+      WebComponents.waitFor(async () => {
+        import('./src/components/diet-app-element.js');
+      });
+    </script>
+    <script>
+      window.process = {
+        env: {
+          NODE_ENV: 'development'
+        }
+      };
+    </script>
+    <meta name="description" content="diet-app-element">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="manifest" href="./manifest.json"> -->
+    <link rel="shortcut icon" href="/manifest/favicon.ico">
+    <link rel="stylesheet" href="./app-styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,500,700&display=swap" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8">
+    <title>Diet App</title>
+  </head>
+  <body>
+    <diet-app-element>
+      <h1>Diet App</h1>
+      <p>This is an application that helps user control calories taking in daily.</p>
+
+      <!-- Check for JavaScript -->
+      <p id="jsyes"></p>
+      <script type="text/javascript">
+        document.getElementById('jsyes').innerHTML='Loading...';
+      </script>
+      <noscript>
+        Could not render the custom element. Check that JavaScript is enabled.
+      </noscript>
+    </diet-app-element>
+  </body>
+</html>
