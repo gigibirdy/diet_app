@@ -3,6 +3,7 @@ export const SELECT_FOOD = 'SELECT_FOOD';
 export const FETCH_NUTRI_SUCCESS = 'FETCH_NUTRI_SUCCESS';
 export const FETCH_NUTRI_FAILURE = 'FETCH_NUTRI_FAILURE';
 export const TOTAL_NUTRI = 'TOTAL_NUTRI';
+export const GET_FOOD_NAME = 'GET_FOOD_NAME';
 
 export function fetchNutri(data = 'milk') {
   return dispatch => {
@@ -49,9 +50,9 @@ export const selectFood = food => ({
 export const caculateTotal = (selectedFood) => {
   let total = {};
   for(let food of selectedFood){
-    for(let item in food){
+    for(let item in food.nutris){
       if(item.includes('nf') ){
-      total[item] = ( total[item] + Math.floor(food[item])) ||  Math.floor(food[item])
+      total[item] = ( total[item] + Math.floor(food.nutris[item])) ||  Math.floor(food.nutris[item])
       }
     }
   }
@@ -60,3 +61,8 @@ export const caculateTotal = (selectedFood) => {
     payload: {total}
   });
 }
+
+export const getFoodName = (foodName) => ({
+  type: GET_FOOD_NAME,
+  payload: {foodName}
+})

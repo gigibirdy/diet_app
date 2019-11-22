@@ -4,6 +4,7 @@ import {store} from '../redux/store.js';
 import {fetchNutri} from '../redux/actions.js';
 import { buttonStyles } from './styles/button-styles.js';
 import {inputStyles} from './styles/input-styles.js';
+import {getFoodName} from '../redux/actions.js';
 
 export class InputForm extends connect(store)(LitElement) {
   static get styles() {
@@ -18,20 +19,19 @@ export class InputForm extends connect(store)(LitElement) {
         `
     ]
   }
-
   static get properties(){
-    return{
-      foodName: {type: String}
+    return {
+      targetFood: {type: Object}
     }
   }
-  constructor(){
-    super();
-    this.foodName = ''
+  //re-render UI once the state updates
+  stateChanged(state){
+    this.targetFood = state.targetFood;
   }
   render(){
     return html`
       <form>
-        <input id="foodinput" type="text" placeholder="please enter your food"  value="${this.foodName}" @change="${this.updateFoodName}"/>
+        <input id="foodinput" type="text" placeholder="please enter your food" value="${this.targetFood.foodName}" @change="${this.updateFoodName}"/>
         <button type="submit" @click="${this.handleClick}">Submit</button>
       </form>
     `;
@@ -39,14 +39,13 @@ export class InputForm extends connect(store)(LitElement) {
 
   //update the value of foodName property
   updateFoodName(e){
-    this.foodName = e.target.value;
+    store.dispatch(getFoodName(e.target.value));
   }
   //dispatch fetchNutri action to fetch data from nutritionix API endpoint
   async handleClick(e){
     e.preventDefault();
-    if(this.foodName){
-      await store.dispatch(fetchNutri(this.foodName));
-      this.foodName = '';
+    if(this.targetFood.foodName){
+      await store.dispatch(fetchNutri(this.targetFood.foodName));
       const foodInput = this.shadowRoot.getElementById('foodinput');
       foodInput.value = '';
     }

@@ -25,7 +25,7 @@ export class SelectedFood extends connect(store)(LitElement){
         font-size: 12px;
         border: 1px solid var(--main-bg-color);
         padding: 5px 0;
-        height: 8vh;
+        height: 6vh;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -34,7 +34,7 @@ export class SelectedFood extends connect(store)(LitElement){
         font-size: 16px;
         border: 1px solid var(--main-bg-color);
         padding: 5px 0;
-        height: 8vh;
+        height: 6vh;
         font-weight: 800;
         display: flex;
         align-items: center;
@@ -63,7 +63,6 @@ export class SelectedFood extends connect(store)(LitElement){
   }
   static get properties(){
     return{
-      selectedFood: {type: Array},
       total: {type: Object}
     }
   }
@@ -89,11 +88,11 @@ export class SelectedFood extends connect(store)(LitElement){
           this.selectedFood.map(food =>
         html`
           <li class="grid-container">
-            <div class="cell">${food.food_name.slice(0, 1).toUpperCase() + food.food_name.slice(1)}</div>
-            <div class="cell">${food.nf_calories} </div>
-            <div class="cell">${food.nf_protein} </div>
-            <div class="cell">${food.nf_saturated_fat}</div>
-            <div class="cell">${food.nf_total_carbohydrate}</div>
+            <div class="cell">${food.foodName}</div>
+            <div class="cell">${food.nutris.nf_calories} </div>
+            <div class="cell">${food.nutris.nf_protein} </div>
+            <div class="cell">${food.nutris.nf_saturated_fat}</div>
+            <div class="cell">${food.nutris.nf_total_carbohydrate}</div>
           </li>`
         )}
         ${

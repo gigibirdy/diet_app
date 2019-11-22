@@ -7,11 +7,12 @@ export class HeaderBanner extends LitElement {
         div{
           background: var(--main-bg-color);
           color: #a3f7bf;
-          height: 13vh;
+          height: 10vh;
           display: flex;
           align-items: center;
           margin-bottom: 30px;
           padding-left: 15px;
+          font-size: 25px;
         }
         @media screen and (max-width: 480px){
           h1{
@@ -23,7 +24,7 @@ export class HeaderBanner extends LitElement {
   }
   render(){
     return html`
-      <div class="banner">
+      <div>
         <h1>Diet App</h1>
       </div>
     `;
