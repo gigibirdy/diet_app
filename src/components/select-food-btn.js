@@ -20,8 +20,7 @@ export class SelectFoodBtn extends connect(store)(LitElement){
 
   static get properties(){
     return{
-      selectedFood: {type: Array},
-      targetFood: {type: Object}
+      selectedFood: {type: Array}
     }
   }
   //re-render UI once the state updates

@@ -51,17 +51,17 @@ export class PreviewFood extends connect(store)(LitElement){
     return html`
       <div class="container">
       ${
-        this.targetFood
+        this.targetFood.nutris
         ? html`
-            <h3 class="title">Add <span>${this.targetFood.food_name.slice(0, 1).toUpperCase() + this.targetFood.food_name.slice(1)}</span> to selected food?</h3>
+            <h3 class="title">Add <span>${this.targetFood.foodName}</span> to selected food?</h3>
             <div>
-              <img src="${this.targetFood.photo.thumb}" alt="food image" class="cover">
+              <img src="${this.targetFood.nutris.photo.thumb}" alt="food image" class="cover">
             </div>
             <div class="grid-container">
-              <div>Calories (cal)<br/>${this.targetFood.nf_calories}</div>
-              <div>Protein (g)<br/>${this.targetFood.nf_protein} </div>
-              <div>Fat (g)<br/>${this.targetFood.nf_saturated_fat} </div>
-              <div>Carb (g)<br/>${this.targetFood.nf_total_carbohydrate} </div>
+              <div>Calories (cal)<br/>${this.targetFood.nutris.nf_calories}</div>
+              <div>Protein (g)<br/>${this.targetFood.nutris.nf_protein} </div>
+              <div>Fat (g)<br/>${this.targetFood.nutris.nf_saturated_fat} </div>
+              <div>Carb (g)<br/>${this.targetFood.nutris.nf_total_carbohydrate} </div>
             </div>
             <div>
               <select-food-btn></select-food-btn>
